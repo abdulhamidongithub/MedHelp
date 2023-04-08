@@ -16,4 +16,7 @@ class MijozAPIView(APIView):
 
 class HomeView(View):
     def get(self, request):
-        return render(request, 'home.html')
+        content = {
+            "sorovlar": Mijoz.objects.filter(aktiv=True)
+        }
+        return render(request, 'home.html', content)

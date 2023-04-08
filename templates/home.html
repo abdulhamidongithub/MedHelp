@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tib-yordam</title>
 </head>
 <body>
-
+    <br>
+    <hr>
+    <h1>Tibbiy yordamga muhtojlar</h1>
+    <br>
+    <hr>
+    <br>
+    {% for sorov in sorovlar %}
+    <div>
+        <h2>{{sorov.ism}}. {{sorov.tugilgan_yil}}</h2>
+        <br>
+        <h2>Geo: {{sorov.longlitude}}, {{sorov.latitude}}</h2>
+         <br>
+        <h2>{{sorov.tel_raqam}}, {{sorov.vaqt}}</h2>
+        <br>
+    </div>
+    {% endfor %}
 </body>
 </html>
