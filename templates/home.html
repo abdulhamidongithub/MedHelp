@@ -1,23 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tib-yordam</title>
-    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script></head>
-<body>
-    <br>
-    <hr>
-    <h1>Tibbiy yordamga muhtojlar</h1>
-    <br>
-    <hr>
-    <br>
-    <div id="sorovlar" hx-get="{% url 'hammasi' %}" hx-trigger="every 10s">
-    {% for sorov in sorovlar %}
-        <h2>{{forloop.counter}}. {{sorov.ism}}, {{sorov.tugilgan_yil}}-yilda tug'ilgan</h2>
-        <h2>Geo: {{sorov.longlitude}},  {{sorov.latitude}}</h2>
-        <h2>{{sorov.tel_raqam}},  {{sorov.vaqt}}</h2>
-        <br>
-    {% endfor %}
-</div>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tib-yordam</title>
+        <style>
+           #sorovlar {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .sorov-item {
+      flex: 1 1 100%; /* set the flex-basis to 100% */
+      margin: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+      #title {
+                text-align: center;
+            }
+        </style>
+        <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+    </head>
+    <body>
+
+        <div id="sorovlar" hx-get="{% url 'hammasi' %}" hx-trigger="every 6s">
+            {% for sorov in sorovlar %}
+                <div class="sorov-item">
+                    <h2>{{forloop.counter}}. {{sorov.ism}}, {{sorov.tugilgan_yil}}-yilda tug'ilgan</h2>
+                    <a href="/ochirish/{{sorov.id}}/"><button type="submit">Yordam yuborildi</button></a>
+                    <h2>Geo: {{sorov.longlitude}},  {{sorov.latitude}}</h2>
+                    <h2>Telefon raqam: {{sorov.tel_raqam}}.    Vaqt: {{sorov.vaqt}}</h2>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+    </html>

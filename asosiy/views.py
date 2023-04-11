@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from rest_framework import status
 from rest_framework.response import Response
@@ -19,6 +19,10 @@ class HomeView(View):
     def get(self, request):
         content = {
             'sorovlar': Mijoz.objects.filter(faol=True)
-            }
+        }
         return render(request, 'home.html', content)
 
+class MijozOchir(View):
+    def get(self, request, pk):
+        Mijoz.objects.filter(id=pk).delete()
+        return redirect("hammasi")

@@ -5,6 +5,7 @@ from asosiy.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('yordam/', MijozAPIView.as_view()),
+    path('ochirish/<int:pk>/', MijozOchir.as_view()),
     path('', HomeView.as_view(), name='hammasi'),
 ]
 
