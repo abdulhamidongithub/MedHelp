@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Tib-yordam</title>
-</head>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script></head>
 <body>
     <br>
     <hr>
@@ -11,15 +11,13 @@
     <br>
     <hr>
     <br>
+    <div id="sorovlar" hx-get="{% url 'hammasi' %}" hx-trigger="every 10s">
     {% for sorov in sorovlar %}
-    <div>
-        <h2>{{sorov.ism}}. {{sorov.tugilgan_yil}}</h2>
+        <h2>{{forloop.counter}}. {{sorov.ism}}, {{sorov.tugilgan_yil}}-yilda tug'ilgan</h2>
+        <h2>Geo: {{sorov.longlitude}},  {{sorov.latitude}}</h2>
+        <h2>{{sorov.tel_raqam}},  {{sorov.vaqt}}</h2>
         <br>
-        <h2>Geo: {{sorov.longlitude}}, {{sorov.latitude}}</h2>
-         <br>
-        <h2>{{sorov.tel_raqam}}, {{sorov.vaqt}}</h2>
-        <br>
-    </div>
     {% endfor %}
+</div>
 </body>
 </html>

@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+ASGI_APPLICATION = 'SendAddress.asgi.application'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

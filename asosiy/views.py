@@ -14,9 +14,11 @@ class MijozAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class HomeView(View):
     def get(self, request):
         content = {
-            "sorovlar": Mijoz.objects.filter(aktiv=True)
-        }
+            'sorovlar': Mijoz.objects.filter(faol=True)
+            }
         return render(request, 'home.html', content)
+
