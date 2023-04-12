@@ -7,9 +7,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Netflix API",
+      title="MedHelp API",
       default_version='v1',
-      description="O'quv maqsadlarida foydalanish uchun Netflix API",
+      description="Yordamga muhtojlardan tushgan so'rovlarni markazga yetkazuvchi loyiha uchun web-API",
       contact=openapi.Contact("Abdulhamid Egamberdiyev, <1997abdulhamid@gmail.com>"),
    ),
    public=True,
