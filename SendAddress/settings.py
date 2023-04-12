@@ -25,8 +25,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'asosiy',
     'rest_framework',
+    'drf_yasg',
+
+    'asosiy',
+
 ]
 
 ASGI_APPLICATION = 'SendAddress.asgi.application'
