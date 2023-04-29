@@ -14,7 +14,6 @@ class MijozAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class HomeView(View):
     def get(self, request):
         content = {
@@ -26,3 +25,5 @@ class MijozOchir(View):
     def get(self, request, pk):
         Mijoz.objects.filter(id=pk).delete()
         return redirect("hammasi")
+
+

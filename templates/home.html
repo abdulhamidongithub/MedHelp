@@ -23,16 +23,16 @@
         <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
     </head>
     <body>
-
         <div id="sorovlar" hx-get="{% url 'hammasi' %}" hx-trigger="every 6s">
             {% for sorov in sorovlar %}
                 <div class="sorov-item">
                     <h2>{{forloop.counter}}. {{sorov.ism}}, {{sorov.tugilgan_yil}}-yilda tug'ilgan</h2>
                     <a href="/ochirish/{{sorov.id}}/"><button type="submit">Yordam yuborildi</button></a>
-                    <h2>Geo: {{sorov.longlitude}},  {{sorov.latitude}}</h2>
+                    <h2>Geo: <a href="{{sorov.geolocation_url}}">{{sorov.geolocation_url}}</a></h2>
                     <h2>Telefon raqam: {{sorov.tel_raqam}}.    Vaqt: {{sorov.vaqt}}</h2>
                 </div>
             {% endfor %}
         </div>
     </body>
     </html>
+

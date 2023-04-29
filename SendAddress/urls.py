@@ -24,4 +24,3 @@ urlpatterns = [
     path('', HomeView.as_view(), name='hammasi'),
 ]
 
-
